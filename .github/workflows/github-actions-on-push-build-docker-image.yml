@@ -8,7 +8,10 @@ jobs:
   build:
     strategy:
       matrix:
-        os: ["ubuntu20.04", "ubuntu22.04", "centos7"]
+        os:
+          #- "ubuntu20.04"
+          - "ubuntu22.04"
+          #- "centos7"
     runs-on: ubuntu-latest
     steps:
       - 
