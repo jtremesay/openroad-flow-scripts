@@ -27,7 +27,7 @@ jobs:
           ./build_openroad.sh --os=ubuntu22.04
       - 
         name: Tag image
-        run: docker tag openroad/flow-${{ matrix.os }}-builder killruana/openroad:latest
+        run: docker tag openroad/flow-ubuntu22.04-builder killruana/openroad:latest
       - 
         name: Push image
         run: docker push killruana/openroad:latest
