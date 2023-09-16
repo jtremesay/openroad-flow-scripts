@@ -6,12 +6,6 @@ on:
     
 jobs:
   build:
-    strategy:
-      matrix:
-        os:
-          #- "ubuntu20.04"
-          - "ubuntu22.04"
-          #- "centos7"
     runs-on: ubuntu-latest
     steps:
       - 
@@ -30,10 +24,10 @@ jobs:
         name: Build OpenROAD
         run: |
           cd OpenROAD-flow-scripts
-          ./build_openroad.sh --os=${{ matrix.os }}
+          ./build_openroad.sh --os=ubuntu22.04
       - 
         name: Tag image
-        run: docker tag openroad/flow-${{ matrix.os }}-builder killruana/openroad:${{ matrix.os }}
+        run: docker tag openroad/flow-${{ matrix.os }}-builder killruana/openroad:latest
       - 
         name: Push image
-        run: docker push killruana/openroad:${{ matrix.os }}
+        run: docker push killruana/openroad:latest
